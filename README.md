@@ -5,6 +5,6 @@ This program outputs all the natural numbers in a layout resembling a triangle/p
 
 I found out after I wrote this that this is called a Klauber Triangle.
 
-The instructions for the programs use are in the code.
+The instructions for the programs use are in the code. Probably quite confusing so go with defaults.
 
 Enjoy.
