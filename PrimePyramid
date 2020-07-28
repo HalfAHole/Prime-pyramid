@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <math.h>
+#include <conio.h>
+int main(void) { 
+int a=1, b=0, i=0, j=0, l=0, n=2, isprime=1, z=66, y=2, p=47, q=92, tmp=0;
+	_textcolor(15);
+printf("Prints the natural numbers sorted into rows up to squares, primes and composites differentiated.\n");
+printf("Enter choice, \'0\' for help: "); scanf("%d", &n);
+while (n==0) {help(); printf("Enter choice, \'0\' for help: "); scanf("%d", &n);}
+printf("How many lines (eg 42): "); scanf("%d", &l); l=l*l;
+
+if (n/10==1) {p=47; q=92;} if (n/10==2) {p=219; q=219;}  if (n/10==3) {p=248; q=248;}  if (n/10==4) {p=245; q=196;}
+if (n%10==1) {p=32;} if (n%10==2) {q=32;}
+if (n/1000000==9) {p=n-9000000; p=p/1000; q=(n-(p*1000))-9000000;}
+_clrscr(); 
+_gotoxy(z,y); for(i=1; i<l+1; i++) {isprime=1; b=a;
+if (i>b*b) {a++; b=a*a; printf("\n");  z--; y++; _gotoxy(z,y); }
+for(j=2; j<=sqrt(i); j++) {if(i%j==0) {isprime=0; break;}}  
+if(isprime==1) {_textcolor(4);printf("%c", p);}
+if(isprime==0) {_textcolor(3);printf("%c", q);}}
+_textcolor(0);
+
+return 0;}
+
+help(){
+int z=0;_clrscr();
+printf("You will be prommted for \'xy\' where x is symbol and y is print choice.\n\n");
+printf("Choose a symbol x=1 for \'/ and \\', x=2 for %c, x=3 for %c, x=4 for %c and %c\n\n", 219, 248, 245, 196); 
+printf("y=0 for all,\ty=1 for blank primes,\ty=2 for blank composites.\n\n"); 
+printf("Enter 9 followed by two 3 digit ANSI codes to get other symbols.\n\n");
+printf("For example, 9067082 will print C for prime and R for composite.\n\n");
+printf("\nThe ANSI character set:");
+for (z=32; z<=255; z++) {if (z%8==0) {printf("\n");}printf("%d = %c\t", z, z);}
+printf("\n\n");
+return(0);}
